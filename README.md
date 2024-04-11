@@ -9,7 +9,6 @@ Test cases:-
 Overall income calculation:-
    overall income = ((income + extra income) - deduction) - tax applied
 
-
    Input form image
    ![Screenshot 2024-04-11 174043](https://github.com/sahilsagar01/react-todolist-app/assets/121376026/5bdf13f3-9e50-4f6f-b105-ebf9b250e567)
 
