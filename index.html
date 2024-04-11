@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- google fonts  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+
+
+    <link rel="stylesheet" href="index.css">
+    <script src="./index.js" defer></script>
+</head>
+<body>
+    <form id="myForm">
+        
+        <div class="tooltip">
+            <label for="firstField">Enter gross annual income <span data-tooltip="Gross annual income is your total salary in a year befout any deduction" class="tooltipBtn" >?</span></label>
+          <input type="text" id="firstField" name="firstField" placeholder="Enter gross annual income" />
+          <div data-tooltip="please enter numbers only." class="icon tooltipBtn" id="firstFieldIcon">!</div>
+        </div>
+       
+        <div class="tooltip">
+            <label for="secondField">Enter extra income <span data-tooltip="Extra income from another source " class="tooltipBtn">?</span></label>
+          <input type="text" id="secondField" name="secondField" placeholder="Enter extra income from other sources" />
+          <div data-tooltip="please enter numbers only." class="icon tooltipBtn" id="secondFieldIcon">!</div>
+        </div>
+       <div class="tooltip">
+        <label for="selectField">Enter age group <span data-tooltip="Your age" class="tooltipBtn">?</span><span class="selectWarning">Please select your age group.</span></label>
+        <select id="selectField" name="selectField" >
+            <option value="">Select age group</option>
+          <option value="below40">&lt;  40</option>
+          <option value="40to60">≥ 40 to below &lt; 60</option>
+          <option value="over60">≥ 60</option>
+        </select>
+        
+       </div>
+        
+        <div class="tooltip">
+            <label for="fourthField">Enter total applicable deduction <span data-tooltip="Total deduction" class="tooltipBtn">?</span></label>
+          <input type="text" id="fourthField" name="fourthField" placeholder="Add total applicable deduction" />
+          <div data-tooltip="please enter numbers only." class="icon tooltipBtn" id="fourthFieldIcon">!</div>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+      <div class="modalcont">
+        <div class="modal">
+            <h1>Your overall income will be.</h1>
+            <h2>-</h2>
+            <p>-</p>
+            <Button class="close">Close</Button>
+        </div>
+      </div>
+</body>
+</html>

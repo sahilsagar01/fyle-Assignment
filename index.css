@@ -1,0 +1,218 @@
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: grid;
+    place-items: center;
+    height: 100vh;
+  }
+  form {
+    width: min(90vw, 450px);
+    margin: 50px auto;
+    padding: 4rem  1rem 2rem;
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+  label {
+    display: flex;
+    gap: 0.2rem;
+    align-items: center;
+    font-family: "Roboto", sans-serif;
+    color: #566a78;
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+  .tooltipBtn{
+    font-size: 10px;
+    display: inline-block;
+    height: 14px;
+    width: 14px;
+    border: 1px solid #bcbcbc;
+    color: #8b8b8b;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  .tooltipBtn::after,
+  .tooltipBtn::before{
+    --scale: 0;
+    --arrow-size: 8px;
+    --tooltip-color: #4c5d6b;
+    
+    position: absolute;
+    left: 50%;
+    top: -.25rem;
+    transform: translateX(-20%) translateY(var(--translate-y ,0)) scale(var(--scale));
+    transition: all ease 150ms;
+    transform-origin: bottom center;
+  }
+  .tooltipBtn::before{
+    --translate-y : calc(-100% - var(--arrow-size));
+    content: attr(data-tooltip);
+    font-family: "Roboto", sans-serif;
+    color: #fff;
+    padding: .5rem;
+    width: max-content;
+    max-width: 6rem;
+    background: var(--tooltip-color);
+    line-height: 15px;
+    font-weight: 400;
+    letter-spacing: .5px;
+    border-radius: .3rem;
+    font-size: .8rem;
+  }
+  .tooltipBtn:hover::before,
+  .tooltipBtn:hover::after{
+    --scale: 1;
+  }
+  .tooltipBtn:hover::after{
+    --translate-y: calc(-1*var(--arrow-size));
+    content: '';
+    border: var(--arrow-size) solid transparent;
+    border-top-color: var(--tooltip-color);
+    transform-origin: top center;
+  }
+  input[type="text"], select {
+    width: 100%;
+    height: 2.5rem;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-top: 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 0.9rem;
+    font-family: "Roboto", sans-serif;
+    
+  }
+  input[type="text"]::placeholder {
+    color: #d1d3d3;
+    font-size: 0.9rem;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+  }
+  select{
+    color: #747b80;
+    font-size: 0.8rem;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+  }
+  .selectWarning{
+    font-size: 0.8rem;
+    color: rgb(254, 32, 32);
+    margin-left: 9.2rem;
+    display: none;
+  }
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+  }
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    top: -5rem;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+  .icon {
+    display: none;
+    position: absolute;
+    top: 53%;
+    right: 10px;
+    transform: translateY(-50%);
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 10px;
+    height: 15px;
+    width: 15px;
+    border: 1px solid #bcbcbc;
+    color: #8b8b8b;
+    border-radius: 50%;
+  }
+
+  .icon::before {
+   max-width: 12rem;
+  }
+  button[type="submit"]{
+    width: 100%;
+    height: 2.5rem;
+    background-color: #6559f5;
+    color: #fff;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    margin-top: 2rem;
+  }
+  .close{
+    width: 6rem;
+    height: 2.5rem;
+    background-color: #6559f5;
+    color: #fff;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    margin-top: 3rem;
+    cursor: pointer;
+  }
+  button[type="submit"],.close:hover{
+    background-color: #675afd;
+    scale: 1.01;
+  }
+  /* modal css */
+  .modalcont{
+    position: absolute;
+    width: 100vw !important;
+    height: 100vh;
+    background-color: rgba(1, 1, 1, 0.433);
+    display: none;
+    place-items: center;
+    font-family: "DM Sans", sans-serif; 
+  }
+  .modal{
+    background-color: #fff;
+    width: 90%;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+  .modal h1,p,h2{
+    margin: 0;
+    color: #303c44;
+  }
+  .modal h1{
+    font-weight: 500;
+    font-size: min(8vw, 4rem);
+    padding: 0 0.5rem;
+    
+  }
+  .modal h2{
+    font-weight: 500;
+    font-size: min(6vw, 3rem);
+    
+  }
+  .modal p{
+    font-weight: 500;
+    font-size: min(4vw, 2rem);
+  }
